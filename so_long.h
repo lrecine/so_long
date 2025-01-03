@@ -6,13 +6,14 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:25:08 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/03 14:13:06 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:19:11 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "./get_next_line/get_next_line.h"
 # include <mlx.h>
 # include <fcntl.h>
 # include <stdio.h>
