@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:51:43 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/03 14:16:34 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:49:35 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	open_exit(t_vars **vars)
 			if ((*vars)->map[y][x] == 'E')
 			{
 				(*vars)->img = mlx_xpm_file_to_image(
-						(*vars)->mlx, "./img/o_exit.xpm", &img_w, &img_h);
+						(*vars)->mlx, "./img/exit.xpm", &img_w, &img_h);
 				mlx_put_image_to_window(
 					(*vars)->mlx, (*vars)->win, (*vars)->img, x * 50, y * 50);
 			}

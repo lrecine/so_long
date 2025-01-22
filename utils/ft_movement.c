@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:55:53 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/03 14:17:25 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:52:11 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	collected(t_vars ***v)
 	(**v)->collect--;
 	(**v)->map[((**v)->y_p / 50)][((**v)->x_p / 50)] = '0';
 	(**v)->img = mlx_xpm_file_to_image(
-			(**v)->mlx, "./img/floor.xpm", &img_w, &img_h);
+			(**v)->mlx, "./img/background1.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(**v)->mlx, (**v)->win, (**v)->img, (**v)->x_p, (**v)->y_p);
 }
@@ -31,7 +31,7 @@ void	to_left(t_vars **v)
 	int		img_h;
 
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/floor.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/background2.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 	if ((*v)->map[((*v)->y_p / 50)][((*v)->x_p / 50) - 1] == 'E')
@@ -47,7 +47,7 @@ void	to_left(t_vars **v)
 	if ((*v)->map[((*v)->y_p / 50)][((*v)->x_p / 50)] == 'C')
 		collected(&v);
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/left.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/player_l.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 }
@@ -58,7 +58,7 @@ void	to_right(t_vars **v)
 	int		img_h;
 
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/floor.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/background2.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 	if ((*v)->map[((*v)->y_p / 50)][((*v)->x_p / 50) + 1] == 'E')
@@ -74,7 +74,7 @@ void	to_right(t_vars **v)
 	if ((*v)->map[((*v)->y_p / 50)][((*v)->x_p / 50)] == 'C')
 		collected(&v);
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/right.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/player_r.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 }
@@ -85,7 +85,7 @@ void	to_up(t_vars **v)
 	int		img_h;
 
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/floor.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/background2.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 	if ((*v)->map[((*v)->y_p / 50) - 1][((*v)->x_p / 50)] == 'E')
@@ -101,7 +101,7 @@ void	to_up(t_vars **v)
 	if ((*v)->map[((*v)->y_p / 50)][((*v)->x_p / 50)] == 'C')
 		collected(&v);
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/back.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/player_b.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 }
@@ -112,7 +112,7 @@ void	to_down(t_vars **v)
 	int		img_h;
 
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/floor.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/background2.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 	if ((*v)->map[((*v)->y_p / 50) + 1][((*v)->x_p / 50)] == 'E')
@@ -128,7 +128,7 @@ void	to_down(t_vars **v)
 	if ((*v)->map[((*v)->y_p / 50)][((*v)->x_p / 50)] == 'C')
 		collected(&v);
 	(*v)->img = mlx_xpm_file_to_image(
-			(*v)->mlx, "./img/front.xpm", &img_w, &img_h);
+			(*v)->mlx, "./img/player.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*v)->mlx, (*v)->win, (*v)->img, (*v)->x_p, (*v)->y_p);
 }

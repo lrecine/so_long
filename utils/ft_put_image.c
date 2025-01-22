@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:56:11 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/03 14:17:33 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:52:57 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	put_image_to_map(char p, int x1, int y1, t_vars **v)
 		put_image(&v, x1, y1, "./img/wall.xpm");
 	else if (p == 'C')
 	{
-		put_image(&v, x1, y1, "./img/floor.xpm");
-		put_image(&v, x1, y1, "./img/collect.xpm");
+		put_image(&v, x1, y1, "./img/brackground1.xpm");
+		put_image(&v, x1, y1, "./img/collectible.xpm");
 		(*v)->collect++;
 	}
 	else if (p == 'E')
@@ -37,9 +37,9 @@ void	put_image_to_map(char p, int x1, int y1, t_vars **v)
 	{
 		(*v)->y_p = y1;
 		(*v)->x_p = x1;
-		put_image(&v, x1, y1, "./img/floor.xpm");
-		put_image(&v, x1, y1, "./img/front.xpm");
+		put_image(&v, x1, y1, "./img/background2.xpm");
+		put_image(&v, x1, y1, "./img/player.xpm");
 	}
 	else
-		put_image(&v, x1, y1, "./img/floor.xpm");
+		put_image(&v, x1, y1, "./img/background2.xpm");
 }

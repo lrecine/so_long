@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:50:25 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/03 14:16:43 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:54:46 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	render_img(t_vars **vars)
 	int			img_w;
 	int			img_h;
 
-	(*vars)->e_vars.imgs[0] = "./img/1.xpm";
-	(*vars)->e_vars.imgs[1] = "./img/2.xpm";
-	(*vars)->e_vars.imgs[2] = "./img/3.xpm";
-	(*vars)->e_vars.imgs[3] = "./img/2.xpm";
-	(*vars)->e_vars.imgs[4] = "./img/1.xpm";
+	(*vars)->e_vars.imgs[0] = "./img/enemy.xpm";
+	(*vars)->e_vars.imgs[1] = "./img/enemy_b.xpm";
+	(*vars)->e_vars.imgs[2] = "./img/enemy_l.xpm";
+	(*vars)->e_vars.imgs[3] = "./img/enemy_r.xpm";
+	(*vars)->e_vars.imgs[4] = "./img/enemy_m.xpm";
 	(*vars)->img = mlx_xpm_file_to_image(
-			(*vars)->mlx, "./img/floor.xpm", &img_w, &img_h);
+			(*vars)->mlx, "./img/background1.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*vars)->mlx, (*vars)->win, (*vars)->img,
 		(*vars)->e_vars.x_e * 50, (*vars)->e_vars.y_e * 50);
@@ -41,7 +41,7 @@ void	move_enemy(t_vars **vars)
 	int			img_h;
 
 	(*vars)->img = mlx_xpm_file_to_image(
-			(*vars)->mlx, "./img/floor.xpm", &img_w, &img_h);
+			(*vars)->mlx, "./img/background1.xpm", &img_w, &img_h);
 	mlx_put_image_to_window(
 		(*vars)->mlx, (*vars)->win, (*vars)->img,
 		(*vars)->e_vars.x_e * 50, (*vars)->e_vars.y_e * 50);
