@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:50:25 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 17:18:57 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:54:50 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_move(int key, t_data *game);
 
 void	ft_move_up(t_data *game)
 {
+	ft_change_player(game, PIXEL, 'u');
 	if (game->map.map[game->p_pos.y - 1][game->p_pos.x] != '1')
 	{
 		game->moves++;
@@ -32,7 +33,7 @@ void	ft_move_up(t_data *game)
 			{
 				game->map.collectible--;
 				game->gas = 1;
-				ft_change_player(game, PIXEL, game->dir);
+				ft_change_player(game, PIXEL, 'u');
 			}
 			game->map.map[game->p_pos.y - 1][game->p_pos.x] = 'P';
 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
@@ -48,6 +49,7 @@ void	ft_move_up(t_data *game)
 
 void	ft_move_down(t_data *game)
 {
+	ft_change_player(game, PIXEL, 'd');
 	if (game->map.map[game->p_pos.y + 1][game->p_pos.x] != '1')
 	{
 		game->moves++;
@@ -58,7 +60,7 @@ void	ft_move_down(t_data *game)
 			{
 				game->map.collectible--;
 				game->gas = 1;
-				ft_change_player(game, PIXEL, game->dir);
+				ft_change_player(game, PIXEL, 'd');
 			}
 			game->map.map[game->p_pos.y + 1][game->p_pos.x] = 'P';
 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
@@ -85,7 +87,7 @@ void	ft_move_right(t_data *game)
 			{
 				game->map.collectible--;
 				game->gas = 1;
-				ft_change_player(game, PIXEL, game->dir);
+				ft_change_player(game, PIXEL, 'r');
 			}
 			game->map.map[game->p_pos.y][game->p_pos.x + 1] = 'P';
 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
@@ -112,7 +114,7 @@ void	ft_move_left(t_data *game)
 			{
 				game->map.collectible--;
 				game->gas = 1;
-				ft_change_player(game, PIXEL, game->dir);
+				ft_change_player(game, PIXEL, 'l');
 			}
 			game->map.map[game->p_pos.y][game->p_pos.x - 1] = 'P';
 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
@@ -133,13 +135,7 @@ void	ft_move(int key, t_data *game)
 	else if (key == 's' || key == DOWN)
 		ft_move_down(game);
 	else if (key == 'd' || key == RIGHT)
-	{
-		game->dir = 'r';
 		ft_move_right(game);
-	}
 	else if (key == 'a' || key == LEFT)
-	{
-		game->dir = 'l';
 		ft_move_left(game);
-	}
 }

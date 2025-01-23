@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:53:06 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 17:32:27 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:24:19 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,28 @@ void	ft_clear_images(t_data *game);
 */
 
 void	ft_change_player_c(t_data *game, int pixel, char dir)
+{
+	if (dir == 'u')
+	{
+		mlx_destroy_image(game->mlx, game->img.player_0);
+		game->img.player_0 = mlx_xpm_file_to_image(game->mlx, \
+			"./img/player_m1.xpm", &pixel, &pixel);
+		mlx_destroy_image(game->mlx, game->img.player_1);
+		game->img.player_1 = mlx_xpm_file_to_image(game->mlx, \
+			"./img/player_m2.xpm", &pixel, &pixel);
+	}
+	else if (dir == 'd')
+	{
+		mlx_destroy_image(game->mlx, game->img.player_0);
+		game->img.player_0 = mlx_xpm_file_to_image(game->mlx, \
+			"./img/player_mb1.xpm", &pixel, &pixel);
+		mlx_destroy_image(game->mlx, game->img.player_1);
+		game->img.player_1 = mlx_xpm_file_to_image(game->mlx, \
+			"./img/player_mb2.xpm", &pixel, &pixel);
+	}
+}
+
+void	ft_change_player(t_data *game, int pixel, char dir)
 {
 	if (dir == 'r')
 	{
@@ -40,30 +62,8 @@ void	ft_change_player_c(t_data *game, int pixel, char dir)
 		game->img.player_1 = mlx_xpm_file_to_image(game->mlx, \
 			"./img/player_ml2.xpm", &pixel, &pixel);
 	}
-}
-
-void	ft_change_player(t_data *game, int pixel, char dir)
-{
-	if (game->gas == 1)
+	else
 		ft_change_player_c(game, pixel, dir);
-	else if (dir == 'r')
-	{
-		mlx_destroy_image(game->mlx, game->img.player_0);
-		game->img.player_0 = mlx_xpm_file_to_image(game->mlx, \
-			"./img/player_mr1.xpm", &pixel, &pixel);
-		mlx_destroy_image(game->mlx, game->img.player_1);
-		game->img.player_1 = mlx_xpm_file_to_image(game->mlx, \
-			"./img/player_mr2.xpm", &pixel, &pixel);
-	}
-	else if (dir == 'l')
-	{
-		mlx_destroy_image(game->mlx, game->img.player_0);
-		game->img.player_0 = mlx_xpm_file_to_image(game->mlx, \
-			"./img/player_ml1.xpm", &pixel, &pixel);
-		mlx_destroy_image(game->mlx, game->img.player_1);
-		game->img.player_1 = mlx_xpm_file_to_image(game->mlx, \
-			"./img/player_ml2.xpm", &pixel, &pixel);
-	}
 }
 
 void	ft_create_images(t_data *game)
@@ -89,7 +89,7 @@ void	ft_create_player(t_data *game, int pixel)
 	game->img.player_0 = mlx_xpm_file_to_image(game->mlx, \
 		"./img/player.xpm", &pixel, &pixel);
 	game->img.player_1 = mlx_xpm_file_to_image(game->mlx, \
-		"./img/player_m1.xpm", &pixel, &pixel);
+		"./img/player.xpm", &pixel, &pixel);
 }
 
 void	ft_clear_images(t_data *game)
