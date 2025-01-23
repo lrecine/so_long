@@ -6,17 +6,19 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:53:31 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:04:03 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:22:17 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 void	ft_count_map_rows(t_data *game, char *file);
 void	ft_set_stats(t_data *game, char *tmp);
 void	ft_get_map_width(t_data *game, char *tmp);
 void	ft_write_map(t_data *game, char *tmp);
 void	ft_free_map(t_data *game);
+*/
 
 void	ft_count_map_rows(t_data *game, char *file)
 {
@@ -56,7 +58,7 @@ void	ft_set_stats(t_data *game, char *tmp)
 				tmp[i] = '0';
 		}
 		if (tmp[i] == 'T')
-			game->map.trap++;
+			game->map.enemy++;
 		if (tmp[i] == 'E')
 			game->map.exit++;
 		if (tmp[i] == 'C')

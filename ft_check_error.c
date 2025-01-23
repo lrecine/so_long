@@ -6,17 +6,19 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:56:11 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:04:19 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:19:04 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 int	ft_check_rectangle(t_data *game);
 int	ft_middle_walls(t_data *game, int y);
 int	ft_first_last_walls(t_data *game, int y, int x);
 int	ft_check_walls(t_data *game);
 int	ft_check_error(t_data *game, char *file);
+*/
 
 int	ft_check_rectangle(t_data *game)
 {

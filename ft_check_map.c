@@ -6,17 +6,19 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:55:53 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:04:16 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:21:16 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 int	ft_init_positions(t_data *game, int i, int j);
 int	ft_check_requirements(t_data *game);
 int	ft_check_extention(const char *file);
 int	ft_set_map_layout(t_data *game, char *file);
 void	ft_init_map_layout(t_data *game);
+*/
 
 void	ft_init_map_layout(t_data *game)
 {
@@ -25,10 +27,10 @@ void	ft_init_map_layout(t_data *game)
 	game->map.height = 0;
 	game->map.player = 0;
 	game->map.collectible = 0;
-	game->map.trap = 0;
+	game->map.enemy = 0;
 	game->map.exit = 0;
 	game->moves = 0;
-	game->sock = 0;
+	game->gas = 0;
 	game->dir = 'r';
 }
 
@@ -127,7 +129,7 @@ int	ft_init_positions(t_data *game, int i, int j)
 		j = 0;
 		i++;
 	}
-	if (ft_init_traps(game) < 0)
+	if (ft_init_enemys(game) < 0)
 		return (-1);
 	return (0);
 }

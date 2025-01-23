@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:29:07 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 14:49:02 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:18:13 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(1, "🛑 Error\nInvalid number of arguments.\n", 37);
+		write(1, "Error\nInvalid number of arguments.\n", 36);
 		return (0);
 	}
 	if (ft_check_error(&game, argv[1]) < 0)
@@ -26,15 +26,15 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	if (game.mlx == NULL)
 	{
-		write(1, "🛑 Error\nMissing graphical interface.\n", 37);
+		write(1, "Error\nMissing graphical interface.\n", 36);
 		ft_free_map(&game);
-		ft_free_traps(&game);
+		ft_free_enemys(&game);
 		return (0);
 	}
 	game.win = mlx_new_window(game.mlx, game.map.width * PIXEL, \
-		game.map.height * PIXEL, "So Long!");
+		game.map.height * PIXEL, "Ravel");
 	ft_create_images(&game);
-	mlx_loop_hook(game.mlx, &ft_trap_anim, &game);
+	mlx_loop_hook(game.mlx, &ft_enemy_anim, &game);
 	mlx_expose_hook(game.win, &ft_render, &game);
 	mlx_key_hook(game.win, ft_key_press, &game);
 	mlx_hook(game.win, 17, 0, ft_press_x, &game);

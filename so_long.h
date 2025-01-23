@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:25:08 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:27:50 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:11:45 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 # define LEFT	0xff51
 # define RIGHT	0xff53
 
-typedef struct s_trap
+typedef struct s_enemy
 {
 	int	*x;
 	int	*y;
-}	t_trap;
+}	t_enemy;
 
 typedef struct s_map
 {
@@ -39,7 +39,7 @@ typedef struct s_map
 	int		height;
 	int		player;
 	int		collectible;
-	int		trap;
+	int		enemy;
 	int		exit;
 }	t_map;
 
@@ -56,7 +56,7 @@ typedef struct s_image
 	void	*collectible;
 	void	*floor;
 	void	*wall;
-	void	*trap;
+	void	*enemy;
 	void	*exit;
 }	t_image;
 
@@ -67,9 +67,9 @@ typedef struct s_data
 	t_player	p_pos;
 	t_map		map;
 	t_image		img;
-	t_trap		t_pos;
+	t_enemy		t_pos;
 	int			moves;
-	int			sock;
+	int			gas;
 	char		dir;
 }	t_data;
 
@@ -99,16 +99,16 @@ void	ft_move_right(t_data *game);
 void	ft_move_left(t_data *game);
 void	ft_move(int key, t_data *game);
 
-//functions that handles the traps
-int		ft_init_traps(t_data *game);
-int		ft_trap_anim(t_data *game);
-int		ft_move_trap_down(t_data *game, int i);
-int		ft_move_trap_left(t_data *game, int i);
-int		ft_move_trap_right(t_data *game, int i);
-int		ft_move_trap_up(t_data *game, int i);
-int		ft_move_trap(t_data *game);
-void	ft_set_traps(t_data *game);
-void	ft_free_traps(t_data *game);
+//functions that handles the enemys
+int		ft_init_enemys(t_data *game);
+int		ft_enemy_anim(t_data *game);
+int		ft_move_enemy_down(t_data *game, int i);
+int		ft_move_enemy_left(t_data *game, int i);
+int		ft_move_enemy_right(t_data *game, int i);
+int		ft_move_enemy_up(t_data *game, int i);
+int		ft_move_enemy(t_data *game);
+void	ft_set_enemys(t_data *game);
+void	ft_free_enemys(t_data *game);
 
 //functions that handles drawing
 int		ft_render(t_data *game);

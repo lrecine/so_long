@@ -6,17 +6,19 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:53:06 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:14:36 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:22:06 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 void	ft_change_player_c(t_data *game, int pixel, char dir);
 void	ft_change_player(t_data *game, int pixel, char dir);
 void	ft_create_images(t_data *game);
 void	ft_create_player(t_data *game, int pixel);
 void	ft_clear_images(t_data *game);
+*/
 
 void	ft_change_player_c(t_data *game, int pixel, char dir)
 {
@@ -42,7 +44,7 @@ void	ft_change_player_c(t_data *game, int pixel, char dir)
 
 void	ft_change_player(t_data *game, int pixel, char dir)
 {
-	if (game->sock == 1)
+	if (game->gas == 1)
 		ft_change_player_c(game, pixel, dir);
 	else if (dir == 'r')
 	{
@@ -75,7 +77,7 @@ void	ft_create_images(t_data *game)
 		&pixel, &pixel);
 	game->img.collectible = mlx_xpm_file_to_image(game->mlx, \
 		"./img/collectible.xpm", &pixel, &pixel);
-	game->img.trap = mlx_xpm_file_to_image(game->mlx, "./img_enemy.xpm", \
+	game->img.enemy = mlx_xpm_file_to_image(game->mlx, "./img_enemy.xpm", \
 		&pixel, &pixel);
 	game->img.exit = mlx_xpm_file_to_image(game->mlx, \
 		"./img/exit.xpm", &pixel, &pixel);
@@ -96,7 +98,7 @@ void	ft_clear_images(t_data *game)
 	mlx_destroy_image(game->mlx, game->img.player_1);
 	mlx_destroy_image(game->mlx, game->img.floor);
 	mlx_destroy_image(game->mlx, game->img.collectible);
-	mlx_destroy_image(game->mlx, game->img.trap);
+	mlx_destroy_image(game->mlx, game->img.enemy);
 	mlx_destroy_image(game->mlx, game->img.wall);
 	mlx_destroy_image(game->mlx, game->img.exit);
 	free(game->t_pos.y);

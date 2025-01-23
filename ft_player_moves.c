@@ -6,17 +6,19 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:50:25 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:03:42 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:22:25 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 void	ft_move_up(t_data *game);
 void	ft_move_down(t_data *game);
 void	ft_move_right(t_data *game);
 void	ft_move_left(t_data *game);
 void	ft_move(int key, t_data *game);
+*/
 
 void	ft_move_up(t_data *game)
 {
@@ -29,7 +31,7 @@ void	ft_move_up(t_data *game)
 			if (game->map.map[game->p_pos.y - 1][game->p_pos.x] == 'C')
 			{
 				game->map.collectible--;
-				game->sock = 1;
+				game->gas = 1;
 				ft_change_player(game, PIXEL, game->dir);
 			}
 			game->map.map[game->p_pos.y - 1][game->p_pos.x] = 'P';
@@ -55,7 +57,7 @@ void	ft_move_down(t_data *game)
 			if (game->map.map[game->p_pos.y + 1][game->p_pos.x] == 'C')
 			{
 				game->map.collectible--;
-				game->sock = 1;
+				game->gas = 1;
 				ft_change_player(game, PIXEL, game->dir);
 			}
 			game->map.map[game->p_pos.y + 1][game->p_pos.x] = 'P';
@@ -82,7 +84,7 @@ void	ft_move_right(t_data *game)
 			if (game->map.map[game->p_pos.y][game->p_pos.x + 1] == 'C')
 			{
 				game->map.collectible--;
-				game->sock = 1;
+				game->gas = 1;
 				ft_change_player(game, PIXEL, game->dir);
 			}
 			game->map.map[game->p_pos.y][game->p_pos.x + 1] = 'P';
@@ -109,7 +111,7 @@ void	ft_move_left(t_data *game)
 			if (game->map.map[game->p_pos.y][game->p_pos.x - 1] == 'C')
 			{
 				game->map.collectible--;
-				game->sock = 1;
+				game->gas = 1;
 				ft_change_player(game, PIXEL, game->dir);
 			}
 			game->map.map[game->p_pos.y][game->p_pos.x - 1] = 'P';

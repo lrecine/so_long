@@ -6,15 +6,17 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:54:03 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:08:50 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:21:26 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 int		ft_render(t_data *game);
 void	ft_draw_map(t_data *game, int x, int y);
 void	ft_open_exit(t_data *game, int pixel);
+*/
 
 void	ft_draw_map(t_data *game, int x, int y)
 {
@@ -37,7 +39,7 @@ void	ft_draw_map(t_data *game, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->win, \
 			game->img.collectible, x * PIXEL, y * PIXEL);
 	if (game->map.map[y][x] == 'T')
-		mlx_put_image_to_window(game->mlx, game->win, game->img.trap, \
+		mlx_put_image_to_window(game->mlx, game->win, game->img.enemy, \
 			x * PIXEL, y * PIXEL);
 	if (game->map.map[y][x] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->img.exit, \

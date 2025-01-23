@@ -6,7 +6,7 @@
 #    By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 14:42:15 by lrecine-          #+#    #+#              #
-#    Updated: 2025/01/23 15:19:31 by lrecine-         ###   ########.fr        #
+#    Updated: 2025/01/23 16:07:26 by lrecine-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME =	so_long
 LIBFT =	libft/libft.a
 
 SRC = ft_check_error.c ft_check_map.c ft_draw_map.c ft_handle_event.c ft_handle_images.c \
-		ft_handle_map.c ft_handle_trap.c ft_player_moves.c ft_trap_moves.c so_long.c
+		ft_handle_map.c ft_handle_enemy.c ft_player_moves.c ft_enemy_moves.c so_long.c
 
 OBJ = $(SRC:.c=.o)
 

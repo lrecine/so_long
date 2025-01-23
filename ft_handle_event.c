@@ -6,16 +6,18 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:54:26 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 15:09:45 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:21:58 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 int		ft_press_x(t_data *game);
 int		ft_key_press(int key, t_data *game);
 void	ft_game_over(t_data *game);
 void	ft_check_winner(t_data *game);
+*/
 
 void	ft_check_winner(t_data *game)
 {
