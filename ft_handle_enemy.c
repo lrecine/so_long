@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:52:44 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 16:21:51 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:18:11 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	ft_enemy_anim(t_data *game)
 		{
 			mlx_destroy_image(game->mlx, game->img.enemy);
 			game->img.enemy = mlx_xpm_file_to_image(game->mlx, \
-				"./img/enemy_ml.xpm", &pixel, &pixel);
+				"./img/enemy_m.xpm", &pixel, &pixel);
 			ft_render(game);
 			x = 0;
 		}

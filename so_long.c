@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:29:07 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 16:18:13 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:24:17 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(1, "Error\nInvalid number of arguments.\n", 36);
+		write(1, "Error\nInvalid number of arguments.\n", 35);
 		return (0);
 	}
 	if (ft_check_error(&game, argv[1]) < 0)
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	if (game.mlx == NULL)
 	{
-		write(1, "Error\nMissing graphical interface.\n", 36);
+		write(1, "Error\nMissing graphical interface.\n", 35);
 		ft_free_map(&game);
 		ft_free_enemys(&game);
 		return (0);

@@ -6,21 +6,19 @@
 #    By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 14:42:15 by lrecine-          #+#    #+#              #
-#    Updated: 2025/01/23 16:07:26 by lrecine-         ###   ########.fr        #
+#    Updated: 2025/01/23 17:20:19 by lrecine-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS	= -Wall -Werror -Wextra -g
+CFLAGS	= -Wall -Werror -Wextra
 CC		= cc $(CFLAGS)
 MLX		= -lmlx -lXext -lX11
 
 NAME =	so_long
 LIBFT =	libft/libft.a
-
-SRC = ft_check_error.c ft_check_map.c ft_draw_map.c ft_handle_event.c ft_handle_images.c \
+SRCS =	ft_check_error.c ft_check_map.c ft_draw_map.c ft_handle_event.c ft_handle_images.c \
 		ft_handle_map.c ft_handle_enemy.c ft_player_moves.c ft_enemy_moves.c so_long.c
-
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
@@ -28,18 +26,17 @@ $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(OBJ) $(LIBFT) $(MLX) -o $(NAME)
 
 $(LIBFT):
-	@make -C libft
+	cd libft && $(MAKE)
 
 %.o: %.c
 	$(CC) -c $^
 
 clean:
-	rm -rf $(OBJ)
-	@make clean -C libft
+	rm -f $(OBJ)
 
 fclean: clean
-	@make fclean -C libft
-	rm -rf $(NAME)
+	cd libft && $(MAKE) fclean
+	rm -f $(NAME)
 
 re: fclean all
 

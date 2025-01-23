@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:25:08 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 16:11:45 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:23:23 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <mlx.h>
 # include <fcntl.h>
 
-# define PIXEL	95
+# define PIXEL	96
 # define ESC	65307
 
 // for moving with the keyboard arrows:
