@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:54:26 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 17:26:08 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:52:27 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_check_winner(t_data *game)
 {
 	if (game->map.collectible == 0)
 	{
-		write(1, "Congratilations! You win!\n", 26);
+		write(1, "Congratulations! You win!\n", 26);
 		ft_clear_images(game);
 		ft_free_map(game);
 		mlx_destroy_window(game->mlx, game->win);
@@ -35,7 +35,7 @@ void	ft_check_winner(t_data *game)
 
 void	ft_game_over(t_data *game)
 {
-	write(1, "You lose.\n", 10);
+	write(1, "Game Over\n", 10);
 	ft_clear_images(game);
 	ft_free_map(game);
 	mlx_destroy_window(game->mlx, game->win);

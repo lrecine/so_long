@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:52:44 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 17:18:11 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:42:26 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,32 @@ void	ft_free_enemys(t_data *game)
 {
 	free(game->t_pos.y);
 	free(game->t_pos.x);
+}
+
+void	ft_change_enemy(t_data *game, int pixel, char dir)
+{
+	if (dir == 'r')
+	{
+		mlx_destroy_image(game->mlx, game->img.enemy);
+		game->img.enemy = mlx_xpm_file_to_image(game->mlx, \
+			"./img/enemy_mr.xpm", &pixel, &pixel);
+	}
+	else if (dir == 'l')
+	{
+		mlx_destroy_image(game->mlx, game->img.enemy);
+		game->img.enemy = mlx_xpm_file_to_image(game->mlx, \
+			"./img/enemy_ml.xpm", &pixel, &pixel);
+	}
+	else if (dir == 'u')
+	{
+		mlx_destroy_image(game->mlx, game->img.enemy);
+		game->img.enemy = mlx_xpm_file_to_image(game->mlx, \
+			"./img/enemy_m.xpm", &pixel, &pixel);
+	}
+	else if (dir == 'd')
+	{
+		mlx_destroy_image(game->mlx, game->img.enemy);
+		game->img.enemy = mlx_xpm_file_to_image(game->mlx, \
+			"./img/enemy_mb.xpm", &pixel, &pixel);
+	}
 }

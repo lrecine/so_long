@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:25:08 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 18:16:26 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:38:38 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int		ft_move_enemy_up(t_data *game, int i);
 int		ft_move_enemy(t_data *game);
 void	ft_set_enemys(t_data *game);
 void	ft_free_enemys(t_data *game);
+void	ft_change_enemy(t_data *game, int pixel, char dir);
 
 //functions that handles drawing
 int		ft_render(t_data *game);
