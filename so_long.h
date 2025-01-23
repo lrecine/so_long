@@ -6,70 +6,124 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:25:08 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/03 14:19:11 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:27:50 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./get_next_line/get_next_line.h"
+# include "libft/libft.h"
 # include <mlx.h>
 # include <fcntl.h>
-# include <stdio.h>
 
-typedef struct s_enemy {
-	int		x_e;
-	int		y_e;
-	int		sign;
-	int		x;
-	int		path_to_move;
-	int		sleep;
-	int		sleep_for_move;
-	char	*imgs[5];
-}	t_enemy_vars;
+# define PIXEL	95
+# define ESC	65307
 
-typedef struct s_vars {
-	void			*mlx;
-	void			*img;
-	void			*win;
-	int				win_w;
-	int				win_h;
-	int				x_p;
-	int				y_p;
-	int				movement;
-	char			**map;
-	int				collect;
-	t_enemy_vars	e_vars;
-}	t_vars;
+// for moving with the keyboard arrows:
+# define UP		0xff52
+# define DOWN	0xff54
+# define LEFT	0xff51
+# define RIGHT	0xff53
 
-typedef struct s_vars_map {
-	int	c;
-	int	p;
-	int	e;
+typedef struct s_trap
+{
+	int	*x;
+	int	*y;
+}	t_trap;
+
+typedef struct s_map
+{
+	char	**map;
+	int		width;
+	int		height;
+	int		player;
+	int		collectible;
+	int		trap;
+	int		exit;
+}	t_map;
+
+typedef struct s_player
+{
 	int	x;
 	int	y;
-}	t_map_vars;
+}	t_player;
 
-char	**get_map(char *fmap);
-char	**ft_split(char *s, char c);
-char	*ft_itoa(int n);
-char	*ft_join_strings(char const *s1, char const *s2);
-int		animation(t_vars *vars);
-int		get_height(char **map);
-int		get_position_for_enemy(t_vars **vars);
-void	to_left(t_vars **v);
-void	to_right(t_vars **v);
-void	to_up(t_vars **v);
-void	to_down(t_vars **v);
-void	put_image(t_vars ***v, int x, int y, char *img);
-void	put_text(t_vars ***v);
-void	put_image_to_map(char p, int x1, int y1, t_vars **v);
-void	check_map_valid(t_vars *vars);
-void	check_file_is_valid(char *file_line);
-void	check_elements(t_vars **vars);
-void	ft_error(t_vars ***v, char *err);
-void	open_exit(t_vars **vars);
-void	exit_door(t_vars ***v);
+typedef struct s_image
+{
+	void	*player_0;
+	void	*player_1;
+	void	*collectible;
+	void	*floor;
+	void	*wall;
+	void	*trap;
+	void	*exit;
+}	t_image;
+
+typedef struct s_data
+{
+	void		*mlx;
+	void		*win;
+	t_player	p_pos;
+	t_map		map;
+	t_image		img;
+	t_trap		t_pos;
+	int			moves;
+	int			sock;
+	char		dir;
+}	t_data;
+
+//functions for checking input errors
+int		ft_check_rectangle(t_data *game);
+int		ft_middle_walls(t_data *game, int y);
+int		ft_first_last_walls(t_data *game, int y, int x);
+int		ft_check_walls(t_data *game);
+int		ft_check_error(t_data *game, char *file);
+int		ft_check_requirements(t_data *game);
+int		ft_check_extention(const char *file);
+
+//functions for layout inicialization or release
+int		ft_init_positions(t_data *game, int i, int j);
+int		ft_set_map_layout(t_data *game, char *file);
+void	ft_init_map_layout(t_data *game);
+void	ft_count_map_rows(t_data *game, char *file);
+void	ft_set_stats(t_data *game, char *tmp);
+void	ft_get_map_width(t_data *game, char *tmp);
+void	ft_write_map(t_data *game, char *tmp);
+void	ft_free_map(t_data *game);
+
+//functions that handles the player
+void	ft_move_up(t_data *game);
+void	ft_move_down(t_data *game);
+void	ft_move_right(t_data *game);
+void	ft_move_left(t_data *game);
+void	ft_move(int key, t_data *game);
+
+//functions that handles the traps
+int		ft_init_traps(t_data *game);
+int		ft_trap_anim(t_data *game);
+int		ft_move_trap_down(t_data *game, int i);
+int		ft_move_trap_left(t_data *game, int i);
+int		ft_move_trap_right(t_data *game, int i);
+int		ft_move_trap_up(t_data *game, int i);
+int		ft_move_trap(t_data *game);
+void	ft_set_traps(t_data *game);
+void	ft_free_traps(t_data *game);
+
+//functions that handles drawing
+int		ft_render(t_data *game);
+void	ft_create_player(t_data *game, int pixel);
+void	ft_draw_map(t_data *game, int x, int y);
+void	ft_open_exit(t_data *game, int pixel);
+void	ft_change_player_c(t_data *game, int pixel, char dir);
+void	ft_change_player(t_data *game, int pixel, char dir);
+void	ft_create_images(t_data *game);
+void	ft_clear_images(t_data *game);
+
+//functions that handles events
+int		ft_press_x(t_data *game);
+int		ft_key_press(int key, t_data *game);
+void	ft_game_over(t_data *game);
+void	ft_check_winner(t_data *game);
 
 #endif

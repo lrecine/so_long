@@ -1,40 +1,46 @@
-NAME 	= so_long
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/23 14:42:15 by lrecine-          #+#    #+#              #
+#    Updated: 2025/01/23 15:19:31 by lrecine-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC 		= gcc
+CFLAGS	= -Wall -Werror -Wextra -g
+CC		= cc $(CFLAGS)
+MLX		= -lmlx -lXext -lX11
 
-CFLAGS 	= -Wall -Wextra -Werror
-MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
-SRCS 	=	./utils/ft_join_strings.c				\
-			./utils/ft_itoa.c						\
-			./utils/ft_get_map.c					\
-			./utils/ft_movement.c 					\
-			./utils/ft_split.c						\
-			./utils/ft_put_image.c					\
-			./utils/ft_put_text.c					\
-			./get_next_line/get_next_line_utils.c	\
-			./get_next_line/get_next_line.c			\
-			./utils/ft_check_file_is_valid.c		\
-			./utils/ft_check_map_utils.c			\
-			./utils/ft_check_map.c					\
-			./utils/ft_animation.c					\
-			./utils/ft_animation_utils.c			\
-			./utils/ft_exit_door.c					\
-			so_long.c
+NAME =	so_long
+LIBFT =	libft/libft.a
+
+SRC = ft_check_error.c ft_check_map.c ft_draw_map.c ft_handle_event.c ft_handle_images.c \
+		ft_handle_map.c ft_handle_trap.c ft_player_moves.c ft_trap_moves.c so_long.c
+
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-OBJS	= $(SRCS:.c=.o)
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(OBJ) $(LIBFT) $(MLX) -o $(NAME)
 
-$(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_FLAGS)
+$(LIBFT):
+	@make -C libft
 
-%.o:%.c
-	@$(CC) $(CFLAGS) -c $^ -o $@
+%.o: %.c
+	$(CC) -c $^
 
 clean:
-	@rm -f $(OBJS)
+	rm -rf $(OBJ)
+	@make clean -C libft
 
 fclean: clean
-	@rm -f $(NAME)
+	@make fclean -C libft
+	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY = all clean fclean re
