@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:55:53 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 17:17:33 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:41:00 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	ft_init_map_layout(t_data *game)
 
 int	ft_check_requirements(t_data *game)
 {
-	if (game->map.player < 1)
+	if (game->map.player != 1)
 	{
-		write(1, "Error\nNot enough players!\n", 26);
+		write(1, "Error\nNot enough players!, or contains more than one\n", 53);
 		return (-1);
 	}
-	if (game->map.exit < 1)
+	if (game->map.exit != 1)
 	{
-		write(1, "Error\nNot enough exits!\n", 24);
+		write(1, "Error\nNot enough exits!, or contains more than one\n", 51);
 		return (-1);
 	}
 	if (game->map.collectible < 1)

@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:56:11 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 17:17:21 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:30:47 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ int	ft_check_rectangle(t_data *game)
 	while (game->map.map[y])
 	{
 		if (ft_strlen(game->map.map[y]) != (size_t)game->map.width)
+		{
+			write(1, "Error\nMap's not rectangle.\n", 27);
+			return (-1);
+		}
+		if ((size_t)game->map.height > (size_t)game->map.width)
+		{
+			write(1, "Error\nMap's not rectangle.\n", 27);
+			return (-1);
+		}
+		else if ((size_t)game->map.height == (size_t)game->map.width)
 		{
 			write(1, "Error\nMap's not rectangle.\n", 27);
 			return (-1);
