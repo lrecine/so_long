@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:25:08 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 18:38:38 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:24:15 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include <mlx.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 # define PIXEL	96
 # define ESC	65307
@@ -35,6 +36,7 @@ typedef struct s_enemy
 typedef struct s_map
 {
 	char	**map;
+	char	**route;
 	int		width;
 	int		height;
 	int		player;
@@ -126,5 +128,10 @@ int		ft_press_x(t_data *game);
 int		ft_key_press(int key, t_data *game);
 void	ft_game_over(t_data *game);
 void	ft_check_winner(t_data *game);
+
+//functions that handles the route
+void	flood_fill(t_data *game, int x, int y);
+int		ft_is_route_valid(t_data *game, char *file);
+int		ft_set_route_map_layout(t_data *game, char *file);
 
 #endif

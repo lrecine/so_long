@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:56:11 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/24 15:30:47 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:30:29 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,7 @@ int	ft_check_error(t_data *game, char *file)
 		free(game->t_pos.y);
 		return (-1);
 	}
+	if (ft_is_route_valid(game, file) < 0)
+		return (-1);
 	return (0);
 }
