@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:53:31 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 17:18:42 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:46:47 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_set_stats(t_data *game, char *tmp)
 	{
 		if (tmp[i] == 'P')
 		{
-			if (game->map.player == 0)
+			if (game->map.player == 0 || game->map.player == 1)
 				game->map.player++;
 			else
 				tmp[i] = '0';
