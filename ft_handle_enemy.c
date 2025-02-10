@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:52:44 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 18:42:26 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:12:34 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ int	ft_enemy_anim(t_data *game)
 	int			pixel;
 
 	pixel = PIXEL;
-	if (x <= 20000)
+	if (x <= 10000)
 	{
-		if (x == 10000)
+		if (x == 5000)
 		{
 			mlx_destroy_image(game->mlx, game->img.enemy);
 			game->img.enemy = mlx_xpm_file_to_image(game->mlx, \
 			"./img/enemy.xpm", &pixel, &pixel);
 			ft_render(game);
 		}
-		else if (x == 20000)
+		else if (x == 10000)
 		{
 			mlx_destroy_image(game->mlx, game->img.enemy);
 			game->img.enemy = mlx_xpm_file_to_image(game->mlx, \

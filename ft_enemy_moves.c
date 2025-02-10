@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:51:43 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/23 18:42:13 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:13:39 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	ft_move_enemy(t_data *game)
 	static int	x;
 	int			i;
 
-	if (x < 50000)
+	if (x < 10000)
 	{
 		x++;
 		return (0);
