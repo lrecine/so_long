@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:55:53 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/01/24 15:41:00 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:47:10 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int	ft_set_map_layout(t_data *game, char *file)
 	int		i;
 	char	*tmp;
 	char	*line;
+	char	*tmp2;
 
 	i = 0;
 	fd = open(file, O_RDONLY);
@@ -92,16 +93,15 @@ int	ft_set_map_layout(t_data *game, char *file)
 	while (i < game->map.height)
 	{
 		line = get_next_line(fd);
-		tmp = ft_strjoin_gnl(tmp, line);
+		tmp2 = ft_strjoin(tmp, line);
+		free(tmp);
+		tmp = tmp2;
 		i++;
 		free(line);
 	}
 	ft_set_stats(game, tmp);
 	if (ft_check_requirements(game) < 0)
-	{
-		free(tmp);
-		return (-1);
-	}
+		return (free(tmp), -1);
 	ft_get_map_width(game, tmp);
 	ft_write_map(game, tmp);
 	free(tmp);
