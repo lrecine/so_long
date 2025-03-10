@@ -6,7 +6,7 @@
 /*   By: lrecine- <lrecine-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:30:55 by lrecine-          #+#    #+#             */
-/*   Updated: 2025/02/10 19:24:45 by lrecine-         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:47:42 by lrecine-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	flood_fill(t_data *game, int x, int y)
 {
-
 	if (game->map.route[y][x] == '0' ||
 		game->map.route[y][x] == 'C' ||
 		game->map.route[y][x] == 'E' ||
@@ -37,7 +36,7 @@ int	ft_is_route_valid(t_data *game, char *file)
 	if (ft_set_route_map_layout(game, file) < 0)
 		return (-1);
 	ft_init_positions(game, 0, 0);
-	flood_fill(game, game->p_pos.x , game->p_pos.y);
+	flood_fill(game, game->p_pos.x, game->p_pos.y);
 	i = 0;
 	while (game->map.route[i])
 	{
